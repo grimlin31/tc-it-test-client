@@ -23,6 +23,11 @@ export const postSlice = createSlice({
     },
     addPost: (state, action) => {
       state.postArray.push(action.payload);
+    },
+    filterByName: (state, action) => {
+      const name = action.payload
+      if (!name) return;
+      state.postArray = state.postArray.filter((post) => post.name === name);
     }
   }
 })
@@ -54,5 +59,5 @@ export const deletePostAsync = (postId) => async (dispatch) => {
   }
 }
 
-export const { getAllPosts, deletePost, addPost } = postSlice.actions
+export const { getAllPosts, deletePost, addPost, filterByName } = postSlice.actions
 export default postSlice.reducer

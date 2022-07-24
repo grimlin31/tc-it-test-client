@@ -47,9 +47,8 @@ export const addPostAsync = (data) => async (dispatch) => {
 
 export const deletePostAsync = (postId) => async (dispatch) => {
   try {
-    console.log(postId)
     const post = await deletePostService(postId);
-    dispatch(deletePost(post.data.postid))
+    dispatch(deletePost(post.postid))
   } catch (err) {
     throw new Error(err)
   }

@@ -14,7 +14,7 @@ const createPostService = async (data) => {
 
 const deletePostService = async (id) => {
     const response = await axios.delete(`${URL}/${id}`);
-    return response.data;
+    return response.data.data[0];
 }
 
 export {
